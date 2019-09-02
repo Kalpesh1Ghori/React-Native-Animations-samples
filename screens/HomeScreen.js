@@ -1,112 +1,50 @@
 import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
-import {
-  Image,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-
+import FadeIn from './FadeIn';
+import FadeOut from './FadeOut';
+import SpringScale from './SpringScale';
+import Rotate from './Rotate';
+import { StyleSheet, Platform, View, Text } from 'react-native';
 import { MonoText } from '../components/StyledText';
 
-export default function HomeScreen() {
+export default HomeScreen = () => {
   return (
-    <View style={styles.container}>
-      <ScrollView
-        style={styles.container}
-        contentContainerStyle={styles.contentContainer}>
-        <View style={styles.welcomeContainer}>
-          <Image
-            source={
-              __DEV__
-                ? require('../assets/images/robot-dev.png')
-                : require('../assets/images/robot-prod.png')
-            }
-            style={styles.welcomeImage}
-          />
+    <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, flexDirection: 'row' }}>
+        <View style={{ flex: 1 }}>
+          <FadeIn/>
         </View>
-
-        <View style={styles.getStartedContainer}>
-          <DevelopmentModeNotice />
-
-          <Text style={styles.getStartedText}>Get started by opening this</Text>
-
-          <View
-            style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-            <MonoText>screens/HomeScreen.js</MonoText>
-          </View>
-
-          <Text style={styles.getStartedText}>
-            Change this text and your app will automatically reload.
-          </Text>
+        <View style={{ flex: 1 }}>
+          <FadeOut/>
         </View>
-
-        <View style={styles.helpContainer}>
-          <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-            <Text style={styles.helpLinkText}>
-              Help, it didn’t automatically reload!
-            </Text>
-          </TouchableOpacity>
+      </View>
+      <View style={{ backgroundColor: 'green', flex: 1, flexDirection: 'row' }}>
+        <View style={{ backgroundColor: 'yellow', flex: 1 }}>
+          <SpringScale/>
         </View>
-      </ScrollView>
-
-      <View style={styles.tabBarInfoContainer}>
-        <Text style={styles.tabBarInfoText}>
-          This is a tab bar. You can edit it in:
-        </Text>
-
-        <View
-          style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-          <MonoText style={styles.codeHighlightText}>
-            navigation/MainTabNavigator.js
-          </MonoText>
+        <View style={{ backgroundColor: 'blue', flex: 1 }}>
+          <Rotate/>
         </View>
       </View>
     </View>
+
+
   );
 }
-
+/*<View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-around', alignItems: 'space-around' }}>
+      <View style={{flex:1}}>
+        <FadeIn style={{flex:1}}/>
+        <FadeOut style={{flex:1}}/>
+      </View>
+      <View style={{flex:1}}>
+        <SpringScale style={{flex:1}}/>
+        <Rotate style={{flex:1}}/>
+      </View>
+    </View>*/
 HomeScreen.navigationOptions = {
-  header: null,
+  headerTitle: 'Animated API',
 };
 
-function DevelopmentModeNotice() {
-  if (__DEV__) {
-    const learnMoreButton = (
-      <Text onPress={handleLearnMorePress} style={styles.helpLinkText}>
-        Learn more
-      </Text>
-    );
-
-    return (
-      <Text style={styles.developmentModeText}>
-        Development mode is enabled: your app will be slower but you can use
-        useful development tools. {learnMoreButton}
-      </Text>
-    );
-  } else {
-    return (
-      <Text style={styles.developmentModeText}>
-        You are not in development mode: your app will run at full speed.
-      </Text>
-    );
-  }
-}
-
-function handleLearnMorePress() {
-  WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/versions/latest/workflow/development-mode/'
-  );
-}
-
-function handleHelpPress() {
-  WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/versions/latest/workflow/up-and-running/#cant-see-your-changes'
-  );
-}
 
 const styles = StyleSheet.create({
   container: {
