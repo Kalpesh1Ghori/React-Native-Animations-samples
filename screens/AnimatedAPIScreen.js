@@ -1,16 +1,18 @@
-import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
-import FadeIn from './FadeIn';
-import FadeOut from './FadeOut';
-import SpringScale from './SpringScale';
-import Rotate from './Rotate';
-import { StyleSheet, Platform, View, Text } from 'react-native';
-import { MonoText } from '../components/StyledText';
+import FadeIn from '../components/FadeIn';
+import FadeOut from '../components/FadeOut';
+import SpringScale from '../components/SpringScale';
+import Rotate from '../components/Rotate';
+import { StyleSheet, Platform, View, ScrollView } from 'react-native';
+import SpringRotate from '../components/SpringRotate';
+import Minimize from '../components/Minimize';
+import MaximizeFadeout from '../components/MaximizeFadeout';
+import MoveXY from '../components/MoveXY';
 
-export default HomeScreen = () => {
+export default AnimatedAPIScreen = () => {
   return (
-    <View style={{ flex: 1 }}>
-      <View style={{ flex: 1, flexDirection: 'row' }}>
+    <ScrollView style={{ flex: 1 }}>
+      <View style={{ flex: 1, flexDirection: 'row', height: 250 }}>
         <View style={{ flex: 1 }}>
           <FadeIn/>
         </View>
@@ -18,30 +20,37 @@ export default HomeScreen = () => {
           <FadeOut/>
         </View>
       </View>
-      <View style={{ backgroundColor: 'green', flex: 1, flexDirection: 'row' }}>
-        <View style={{ backgroundColor: 'yellow', flex: 1 }}>
+      <View style={{ flex: 1, flexDirection: 'row', height: 250 }}>
+        <View style={{ flex: 1 }}>
           <SpringScale/>
         </View>
-        <View style={{ backgroundColor: 'blue', flex: 1 }}>
+        <View style={{ flex: 1 }}>
           <Rotate/>
         </View>
       </View>
-    </View>
+      <View style={{ flex: 1, flexDirection: 'row', height: 250 }}>
+        <View style={{ flex: 1 }}>
+          <SpringRotate/>
+        </View>
+        <View style={{ flex: 1 }}>
+          <Minimize/>
+        </View>
+      </View>
+      <View style={{ flex: 1, flexDirection: 'row', height: 250 }}>
+        <View style={{ flex: 1 }}>
+          <MaximizeFadeout/>
+        </View>
+        <View style={{ flex: 1 }}>
+          <MoveXY/>
+        </View>
+      </View>
+    </ScrollView>
 
 
   );
 }
-/*<View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-around', alignItems: 'space-around' }}>
-      <View style={{flex:1}}>
-        <FadeIn style={{flex:1}}/>
-        <FadeOut style={{flex:1}}/>
-      </View>
-      <View style={{flex:1}}>
-        <SpringScale style={{flex:1}}/>
-        <Rotate style={{flex:1}}/>
-      </View>
-    </View>*/
-HomeScreen.navigationOptions = {
+
+AnimatedAPIScreen.navigationOptions = {
   headerTitle: 'Animated API',
 };
 
@@ -77,7 +86,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 50,
   },
-  homeScreenFilename: {
+  AnimatedAPIScreenFilename: {
     marginVertical: 7,
   },
   codeHighlightText: {

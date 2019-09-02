@@ -3,50 +3,49 @@ import {
   View,
   StyleSheet,
   Animated,
+  Easing,
 } from "react-native";
 import { Button } from 'react-native-elements';
 
-export default class SpringScale extends Component {
+export default class Rotate extends Component {
   state = {
     isAnimating: false,
-    animatedValue: new Animated.Value(0.3)
+    animatedValue: new Animated.Value(0)
   };
 
   onPress = () => {
-    if (this.state.isFinished) {
-      this.setState({
-        isFinished: false,
-        animatedValue: new Animated.Value(0.3)
-      });
-      return;
-    }
     this.setState({ isAnimating: true, }, () => {
-      Animated.spring(this.state.animatedValue, {
+      Animated.timing(this.state.animatedValue, {
         toValue: 1,
-        friction: 1,
+        duration: 3000,
+        easing: Easing.linear
       }).start(() => {
-        this.setState({  isFinished: true, isAnimating: false });
+        this.setState({animatedValue: new Animated.Value(0), isAnimating: false });
       });
     });
   };
 
   render() {
+    const rotate = this.state.animatedValue.interpolate({
+      inputRange: [0, 1],
+      outputRange: ['0deg', '360deg'],
+    });
     return (
       <View style={styles.container}>
         <Button
-          title={this.state.isFinished ? 'Reset' : 'Spring'}
+          title={'Rotate'}
           onPress={() => this.onPress()}
           loading={this.state.isAnimating}
+          disabled={this.state.isAnimating}
         />
         <Animated.Image
-          source={require('../assets/images/wow.png')}
-          resizeMethod={'contain'}
+          source={require('../assets/images/einstein.png')}
           resizeMode={'contain'}
           style={{
             flex:1,
             width: '100%',
             height: '100%',
-            transform: [{ scale: this.state.animatedValue }],
+            transform: [{ rotate: rotate }],
           }}
         />
       </View>
@@ -56,6 +55,10 @@ export default class SpringScale extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex:1
+    flex:1,
+    margin:10,
+    padding:5,
+    borderWidth:1,
+    borderColor: 'gray',
   },
 });

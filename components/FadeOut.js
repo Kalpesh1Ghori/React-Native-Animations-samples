@@ -10,19 +10,19 @@ export default class FadeIn extends Component {
   state = {
     isFinished: false,
     isAnimating: false,
-    fadeValue: new Animated.Value(1)
+    animatedValue: new Animated.Value(1)
   };
 
-  _start = () => {
+  onPress = () => {
     if (this.state.isFinished) {
       this.setState({
         isFinished: false,
-        fadeValue: new Animated.Value(1)
+        animatedValue: new Animated.Value(1)
       });
       return;
     }
     this.setState({ isAnimating: true, }, () => {
-      Animated.timing(this.state.fadeValue, {
+      Animated.timing(this.state.animatedValue, {
         toValue: 0,
         duration: 1500
       }).start(() => this.setState({ isFinished: true ,  isAnimating: false}));
@@ -34,17 +34,17 @@ export default class FadeIn extends Component {
       <View style={styles.container}>
         <Button
           title={this.state.isFinished ? 'Reset' : 'Fade Out'}
-          onPress={() => this._start()}
+          onPress={() => this.onPress()}
           loading={this.state.isAnimating}
+          disabled={this.state.isAnimating}
         />
         <Animated.Image
           source={require('../assets/images/bye.gif')}
-          resizeMethod={'contain'}
           resizeMode={'contain'}
           style={{
             width: '100%',
             height: '100%',
-            opacity: this.state.fadeValue,
+            opacity: this.state.animatedValue,
           }}
         />
       </View>
@@ -54,6 +54,10 @@ export default class FadeIn extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex:1
+    flex:1,
+    margin:10,
+    padding:5,
+    borderWidth:1,
+    borderColor: 'gray',
   },
 });

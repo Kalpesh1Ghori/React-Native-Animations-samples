@@ -3,49 +3,41 @@ import {
   View,
   StyleSheet,
   Animated,
-  Easing,
 } from "react-native";
 import { Button } from 'react-native-elements';
 
-export default class Rotate extends Component {
+export default class MoveXY extends Component {
   state = {
     isAnimating: false,
-    animatedValue: new Animated.Value(0)
+    animatedValue: new Animated.ValueXY({ x: -20, y: 0 }),
+    flipValue: -20,
   };
 
   onPress = () => {
-    this.setState({ isAnimating: true, }, () => {
+    this.setState({ isAnimating: true, flipValue: this.state.flipValue * (-1) }, () => {
       Animated.timing(this.state.animatedValue, {
-        toValue: 1,
-        duration: 3000,
-        easing: Easing.linear
-      }).start(() => {
-        this.setState({animatedValue: new Animated.Value(0), isAnimating: false });
-      });
+        toValue: { x: this.state.flipValue, y: 0 },
+      }).start(() => this.setState({ isAnimating: false }));
     });
   };
 
   render() {
-    const rotate = this.state.animatedValue.interpolate({
-      inputRange: [0, 1],
-      outputRange: ['0deg', '360deg'],
-    });
     return (
       <View style={styles.container}>
         <Button
-          title={'Rotate'}
+          title={'Move'}
           onPress={() => this.onPress()}
           loading={this.state.isAnimating}
+          disabled={this.state.isAnimating}
         />
         <Animated.Image
-          source={require('../assets/images/einstein.png')}
-          resizeMethod={'contain'}
+          source={require('../assets/images/run.gif')}
           resizeMode={'contain'}
           style={{
-            flex:1,
+            flex: 1,
             width: '100%',
             height: '100%',
-            transform: [{ rotate: rotate }],
+            transform: this.state.animatedValue.getTranslateTransform()
           }}
         />
       </View>
@@ -55,6 +47,10 @@ export default class Rotate extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex:1
+    flex: 1,
+    margin: 10,
+    padding: 5,
+    borderWidth: 1,
+    borderColor: 'gray',
   },
 });
