@@ -3,10 +3,13 @@ import {
   View,
   StyleSheet,
   Animated,
+  Platform
 } from "react-native";
 import { Button } from 'react-native-elements';
 
 export default class FadeIn extends Component {
+  resizeMode = (Platform.OS === 'ios') ?  'contain' : 'center';
+
   state = {
     isFinished: false,
     isAnimating: false,
@@ -40,7 +43,7 @@ export default class FadeIn extends Component {
         />
         <Animated.Image
           source={require('../assets/images/bye.gif')}
-          resizeMode={'contain'}
+          resizeMode={this.resizeMode}
           style={{
             width: '100%',
             height: '100%',
