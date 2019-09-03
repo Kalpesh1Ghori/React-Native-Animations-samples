@@ -5,7 +5,7 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 import TabBarIcon from '../components/TabBarIcon';
 import AnimatedAPIScreen from '../screens/AnimatedAPIScreen';
 import LayoutAnimationScreen from '../screens/LayoutAnimationScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import TransitionScreen from '../screens/TransitionScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -31,14 +31,14 @@ HomeStack.navigationOptions = {
 
 HomeStack.path = '';
 
-const LinksStack = createStackNavigator(
+const LayoutAnimStack = createStackNavigator(
   {
     Links: LayoutAnimationScreen,
   },
   config
 );
 
-LinksStack.navigationOptions = {
+LayoutAnimStack.navigationOptions = {
   tabBarLabel: 'Layout-Animation',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -48,28 +48,28 @@ LinksStack.navigationOptions = {
   ),
 };
 
-LinksStack.path = '';
+LayoutAnimStack.path = '';
 
-const SettingsStack = createStackNavigator(
+const TransitionStack = createStackNavigator(
   {
-    Settings: SettingsScreen,
+    Transitions: TransitionScreen,
   },
   config
 );
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+TransitionStack.navigationOptions = {
+  tabBarLabel: 'Transitions',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+    <TabBarIcon focused={focused} name={'md-barcode'} />
   ),
 };
 
-SettingsStack.path = '';
+TransitionStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
-  LinksStack,
-  SettingsStack,
+  LayoutAnimStack,
+  TransitionStack,
 });
 
 tabNavigator.path = '';
