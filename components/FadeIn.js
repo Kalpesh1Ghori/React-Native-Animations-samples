@@ -3,6 +3,7 @@ import {
   View,
   StyleSheet,
   Animated,
+  Platform,
 } from "react-native";
 import { Button } from 'react-native-elements';
 
@@ -43,7 +44,7 @@ export default class FadeIn extends Component {
           source={require('../assets/images/hi.gif')}
           resizeMode={'contain'}
           style={{
-            flex:1,
+            flex: 1,
             width: '100%',
             height: '100%',
             opacity: this.state.animatedValue,
@@ -56,10 +57,15 @@ export default class FadeIn extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,
-    margin:10,
-    padding:5,
-    borderWidth:1,
+    flex: 1,
+    margin: 10,
+    padding: 5,
+    borderWidth: 1,
     borderColor: 'gray',
+    ...Platform.select({
+      web: {
+        height: 400
+      }
+    })
   },
 });

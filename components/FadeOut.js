@@ -8,7 +8,7 @@ import {
 import { Button } from 'react-native-elements';
 
 export default class FadeIn extends Component {
-  resizeMode = (Platform.OS === 'ios') ?  'contain' : 'center';
+  resizeMode = (Platform.OS === 'android') ? 'center' : 'contain';
 
   state = {
     isFinished: false,
@@ -28,7 +28,7 @@ export default class FadeIn extends Component {
       Animated.timing(this.state.animatedValue, {
         toValue: 0,
         duration: 1500
-      }).start(() => this.setState({ isFinished: true ,  isAnimating: false}));
+      }).start(() => this.setState({ isFinished: true, isAnimating: false }));
     });
   };
 
@@ -57,10 +57,10 @@ export default class FadeIn extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,
-    margin:10,
-    padding:5,
-    borderWidth:1,
+    flex: 1,
+    margin: 10,
+    padding: 5,
+    borderWidth: 1,
     borderColor: 'gray',
   },
 });
