@@ -15,7 +15,7 @@ PlaygroundStack.navigationOptions = {
   tabBarIcon: ({ focused }) => {
     <TabBarIcon
       focused={focused}
-      name={'extension'}
+      name={'md-play'}
     />
   }
 };

@@ -3,10 +3,10 @@ import { View, Text } from 'react-native';
 import { Card, Button, Icon } from 'react-native-elements'
 
 
-class DetailsScreen extends Component {
+class CardScreen extends Component {
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, backgroundColor: 'white' }}>
         <Card
           title='Albert Einstein'
           image={require('../assets/images/einstein.png')}>
@@ -24,8 +24,8 @@ class DetailsScreen extends Component {
   }
 }
 
-DetailsScreen.navigationOptions = {
-  title: 'Details',
+CardScreen.navigationOptions = {
+  title: 'Card',
 };
 
-export default DetailsScreen;
+export default CardScreen;

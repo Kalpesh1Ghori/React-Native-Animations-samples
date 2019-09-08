@@ -47,7 +47,7 @@ class SearchScreen extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1 ,backgroundColor: 'white' }}>
         <DataList data={this.state.data}/>
       </View>
     )
