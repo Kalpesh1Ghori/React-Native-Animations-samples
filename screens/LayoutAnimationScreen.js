@@ -37,9 +37,9 @@ export default class LayoutAnimationScreen extends Component {
     position: '',
   };
 
-  componentDidMount() {
-    LayoutAnimation.configureNext(CustomLayoutLinear)
-  }
+  // componentDidMount() {
+  //   LayoutAnimation.configureNext(CustomLayoutLinear)
+  // }
 
   async componentDidMount() {
     this.setState({ isLoading: true});

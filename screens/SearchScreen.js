@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-import { ListItem, Icon } from 'react-native-elements'
-import EvilIcons from 'react-native-vector-icons/EvilIcons';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import axios from 'axios/index';
-import uuid from 'uuid/v1';
+import { View } from 'react-native';
+import { Icon } from 'react-native-elements'
 import DataList from '../components/DataList';
-
 
 const list = [{
   "name": "Leo Gill",
@@ -53,9 +48,7 @@ class SearchScreen extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <DataList
-          data={this.state.data}
-        />
+        <DataList data={this.state.data}/>
       </View>
     )
   }
@@ -63,11 +56,7 @@ class SearchScreen extends Component {
 
 SearchScreen.navigationOptions = {
   title: 'Search',
-  headerRight: (
-    <Icon
-      name={'search'}
-    />
-  )
+  headerRight: (<Icon name={'search'}/>)
 };
 
 export default SearchScreen;
