@@ -7,7 +7,9 @@ import BottomTransition from '../transitions/BottomTransition';
 import FadeTransition from '../transitions/FadeTransition';
 import SideTransition from '../transitions/SideTransition';
 import TransitionScreen from '../../screens/TransitionScreen';
-import SelectionScreen from '../../screens/SelectionScreen';
+import SettingsScreen from '../../screens/SettingsScreen';
+import SearchScreen from '../../screens/SearchScreen';
+import DetailsScreen from '../../screens/DetailsScreen';
 import _ from 'lodash';
 
 const TransitionConfig = () => {
@@ -30,7 +32,9 @@ const TransitionConfig = () => {
 const TransitionStack = createStackNavigator(
   {
     Transitions: TransitionScreen,
-    Selection: SelectionScreen,
+    Settings: SettingsScreen,
+    Search: SearchScreen,
+    Details: DetailsScreen,
   },
   {
     ...StackNavConfigDefault,
