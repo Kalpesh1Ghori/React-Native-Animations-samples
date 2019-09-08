@@ -49,22 +49,17 @@ export default class LayoutAnimationScreen extends Component {
 
   fetchItems = async () => {
     try {
-      console.log('axios get')
-      const res = await axios.get('https://reqres.in/api/users?page=2');
-      // const res = await axios.get('https://uifaces.co/api?limit=20', { headers: { 'X-API-KEY': '407e264ea8ab423b337832348fa807' } });
-      console.log('axios res', res);
+      const res = await axios.get('https://uifaces.co/api?limit=20', { headers: { 'X-API-KEY': '407e264ea8ab423b337832348fa807' } });
       const resWithIds = res.data.map(item => ({ ...item, id: uuid(), show: true }));
       return resWithIds;
     } catch (ex) {
-      console.log('axios failed');
       console.log(ex);
     }
   };
 
   fetchItem = async () => {
     try {
-      const res = await axios.get('https://reqres.in/api/users');
-      // const res = await axios.get('https://uifaces.co/api?random&limit=1', { headers: { 'X-API-KEY': '407e264ea8ab423b337832348fa807' } });
+      const res = await axios.get('https://uifaces.co/api?random&limit=1', { headers: { 'X-API-KEY': '407e264ea8ab423b337832348fa807' } });
       return { ...res.data[0], id: uuid(), show: false };
     } catch (ex) {
       console.log(ex);
@@ -97,8 +92,8 @@ export default class LayoutAnimationScreen extends Component {
       number = Math.round(number);
       if (_.isNaN(number) || number < 0) {
         number = 0;
-      } else if (number > (this.state.data.length)) {
-        number = (this.state.data.length)
+      } else if (number > (this.state.data.length - 1)) {
+        number = (this.state.data.length - 1)
       }
       this.setState({ position: number.toString() });
     } catch (ex) {
