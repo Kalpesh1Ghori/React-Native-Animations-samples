@@ -1,12 +1,8 @@
 import React from 'react';
 import {
-  StyleSheet,
-  Text,
   View,
-  Image,
   ListView,
   Dimensions,
-  TouchableWithoutFeedback
 } from 'react-native';
 import PHOTOS from '../assets/data';
 import { processImages, buildRows, normalizeRows } from '../utils/utils';
@@ -16,7 +12,7 @@ import GridItem from '../components/GridItem';
 const maxWidth = Dimensions.get('window').width;
 
 export default class SharedElmScreen extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const processedImages = processImages(PHOTOS);
     let rows = buildRows(processedImages, maxWidth);
     rows = normalizeRows(rows, maxWidth);
@@ -56,9 +52,6 @@ export default class SharedElmScreen extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff'
-  }
-});
+SharedElmScreen.navigationOptions = {
+  title: 'Shared Element',
+};
