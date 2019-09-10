@@ -1,8 +1,12 @@
 import React from 'react';
 import {
+  StyleSheet,
+  Text,
   View,
+  Image,
   ListView,
   Dimensions,
+  TouchableWithoutFeedback
 } from 'react-native';
 import PHOTOS from '../assets/data';
 import { processImages, buildRows, normalizeRows } from '../utils/utils';
@@ -12,7 +16,14 @@ import GridItem from '../components/GridItem';
 const maxWidth = Dimensions.get('window').width;
 
 export default class SharedElmScreen extends React.Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      dataSource: [],
+    };
+  }
+
+  componentWillMount() {
     const processedImages = processImages(PHOTOS);
     let rows = buildRows(processedImages, maxWidth);
     rows = normalizeRows(rows, maxWidth);
@@ -20,10 +31,7 @@ export default class SharedElmScreen extends React.Component {
     const ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2
     });
-
-    this.state = {
-      dataSource: ds.cloneWithRows(rows)
-    };
+    this.setState({ dataSource: ds.cloneWithRows(rows) });
   }
 
   renderRow = (onPhotoOpen, row) =>
@@ -35,7 +43,7 @@ export default class SharedElmScreen extends React.Component {
       }}
     >
       {row.map(item =>
-        <GridItem item={item} key={item.id} onPhotoOpen={onPhotoOpen} />
+        <GridItem item={item} key={item.id} onPhotoOpen={onPhotoOpen}/>
       )}
     </View>;
 
