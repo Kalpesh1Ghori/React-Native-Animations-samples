@@ -42,12 +42,12 @@ const SharedTransElmStack = createStackNavigator({
 
 SharedTransElmStack.navigationOptions = {
   tabBarLabel: 'Shared Elm',
-  tabBarIcon: ({ focused }) => {
+  tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={'blur-on'}
+      name={'ios-apps'}
     />
-  }
+  ),
 };
 
 SharedTransElmStack.path = '';

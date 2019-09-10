@@ -1,12 +1,9 @@
 import React from 'react';
 import {
-  StyleSheet,
-  Text,
   View,
-  Image,
   ListView,
   Dimensions,
-  TouchableWithoutFeedback
+  Switch
 } from 'react-native';
 import PHOTOS from '../assets/data';
 import { processImages, buildRows, normalizeRows } from '../utils/utils';
@@ -20,7 +17,9 @@ export default class SharedElmScreen extends React.Component {
     super(props);
     this.state = {
       dataSource: [],
+      isChaos: false,
     };
+    this.interval = null;
   }
 
   componentWillMount() {
@@ -32,6 +31,11 @@ export default class SharedElmScreen extends React.Component {
       rowHasChanged: (r1, r2) => r1 !== r2
     });
     this.setState({ dataSource: ds.cloneWithRows(rows) });
+  }
+
+  componentDidMount() {
+    this.props.navigation.setParams({ isChaos: this.state.isChaos });
+    this.props.navigation.setParams({ toggleChaos: this.toggleChaos });
   }
 
   renderRow = (onPhotoOpen, row) =>
@@ -47,19 +51,45 @@ export default class SharedElmScreen extends React.Component {
       )}
     </View>;
 
+  toggleChaos = () => {
+    this.setState({ isChaos: !this.state.isChaos }, () => {
+      this.props.navigation.setParams({ isChaos: this.state.isChaos });
+      if (this.state.isChaos) {
+        console.log('chaos on');
+        this.interval = setInterval(() => {
+          console.log('inside interval');
+          for (let i = 0; i < 500; i++) {
+            console.log(i);
+          }
+        }, 1000);
+      } else {
+        console.log('chaos off');
+        clearInterval(this.interval);
+      }
+    });
+  };
+
   render() {
     return (
-      <PhotoGallery
-        renderContent={({ onPhotoOpen }) =>
-          <ListView
-            dataSource={this.state.dataSource}
-            renderRow={this.renderRow.bind(this, onPhotoOpen)}
-          />}
-      />
+      <View style={{ flex: 1 }}>
+        <PhotoGallery
+          renderContent={({ onPhotoOpen }) =>
+            <ListView
+              dataSource={this.state.dataSource}
+              renderRow={this.renderRow.bind(this, onPhotoOpen)}
+            />}
+        />
+      </View>
     );
   }
 }
 
-SharedElmScreen.navigationOptions = {
+SharedElmScreen.navigationOptions = ({ navigation }) => ({
   title: 'Shared Element',
-};
+  headerRight: (
+    <Switch
+      value={navigation.getParam('isChaos')}
+      onChange={navigation.getParam('toggleChaos')}
+    />
+  ),
+});
