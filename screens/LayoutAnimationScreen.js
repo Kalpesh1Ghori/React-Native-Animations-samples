@@ -13,18 +13,18 @@ if (Platform.OS === 'android') {
 }
 
 const CustomLayoutLinear = {
-  duration: 300,
+  duration: 500,
   create: {
     type: LayoutAnimation.Types.easeIn,
     property: LayoutAnimation.Properties.scaleY,
   },
   update: {
     type: LayoutAnimation.Types.linear,
-    property: LayoutAnimation.Properties.scaleY
+    property: LayoutAnimation.Properties.opacity
   },
   delete: {
     type: LayoutAnimation.Types.easeOut,
-    property: LayoutAnimation.Properties.scaleY
+    property: LayoutAnimation.Properties.opacity
   }
 };
 
