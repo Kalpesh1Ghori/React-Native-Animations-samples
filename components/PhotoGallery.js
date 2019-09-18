@@ -75,7 +75,7 @@ export default class PhotoGallery extends React.Component {
       Animated.timing(this.state.openProgress, {
         toValue: 1,
         duration: 300,
-        useNativeDriver: true
+        useNativeDriver: this.props.useNativeDriver,
       }).start(() => {
         this.setState({ isAnimating: false });
       });
@@ -87,7 +87,7 @@ export default class PhotoGallery extends React.Component {
       Animated.timing(this.state.openProgress, {
         toValue: 0,
         duration: 300,
-        useNativeDriver: true
+        useNativeDriver: this.props.useNativeDriver,
       }).start(() => {
         this._imageOpacitySetters[photoId](1);
         this.setState({ isAnimating: false });
@@ -96,6 +96,7 @@ export default class PhotoGallery extends React.Component {
   };
 
   render() {
+    console.log(this.props.useNativeDriver);
     const { photo, openProgress, isAnimating } = this.state;
     return (
       <View style={{ flex: 1 }}>

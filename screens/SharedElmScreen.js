@@ -73,6 +73,7 @@ export default class SharedElmScreen extends React.Component {
     return (
       <View style={{ flex: 1 }}>
         <PhotoGallery
+          useNativeDriver={!this.state.isChaos}
           renderContent={({ onPhotoOpen }) =>
             <ListView
               dataSource={this.state.dataSource}
