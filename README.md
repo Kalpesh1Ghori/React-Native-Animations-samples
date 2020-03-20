@@ -3,10 +3,20 @@
 [Meetup Slides explenation](https://docs.google.com/presentation/d/1Ne6xmzMd-qZ0JRObe5skSg9XQcF9wa-Fa03OZJTMDEI/present?usp=sharing)
  
 # React-Native Animations in Motion
-Code sapmle of cool animations in React-Native you can use in your app
+## What is Motion?
+> Motion graphics focus on giving movement to graphic design elements, illustrating a point you’re trying to make
 
 
-### Animated API
+# Animated API
+* Animated focuses on declarative relationships between inputs and outputs
+* Configurable transforms between elements
+* Simple start/stop methods to control time-based animation execution
+
+![Animated API 1](demo/animated_api_1.gif)
+![Animated API 2](demo/animated_api_2.gif)
+
+## Samples:
+
 - Fade in
 - Fade out
 - Spring
@@ -14,17 +24,22 @@ Code sapmle of cool animations in React-Native you can use in your app
 - Minimize
 - Maximize
 - Movement
-- Mixes & more ...
 
-![Animated API 1](demo/animated_api_1.gif)
-![Animated API 2](demo/animated_api_2.gif)
 
-### Layout Animnations
+
+# Layout Animnations
+* Automatically animates views when the next layout happens
+* A common way to use it: call it before  setState
+
+![Layout Animations](demo/layout_animation.gif)
+
+## Samples:
+
 - Remove item from a list
 - Add item to a list
 - Add item to a list at position [i]
 
-![Layout Animations](demo/layout_animation.gif)
+
 
 ### Transitions
 - Bottom transition
