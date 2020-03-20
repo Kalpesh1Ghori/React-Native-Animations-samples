@@ -1,11 +1,14 @@
- Mobile app animations written in **React-Native** 
+
+
  
+# React-Native Animations in Motion
+
+Mobile app animations both platform compatible **iOS** & **Android**
+
  * Live demo [snack](https://snack.expo.io/@innovaterz/motion)
  
 * [Slides share](https://docs.google.com/presentation/d/1Ne6xmzMd-qZ0JRObe5skSg9XQcF9wa-Fa03OZJTMDEI/present?usp=sharing)
 
- 
-# React-Native Animations in Motion
 ## What is Motion?
 > Motion graphics focus on giving movement to graphic design elements, illustrating a point you’re trying to make
 
