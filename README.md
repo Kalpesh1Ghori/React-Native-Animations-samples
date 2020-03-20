@@ -1,4 +1,5 @@
- Mobile app written [React-Native](https://facebook.github.io/react-native/)
+ Mobile app animations written in [React-Native](https://facebook.github.io/react-native/) live demo in action > [Open `snack`](https://snack.expo.io/@innovaterz/motion)
+ 
 # React-Native Animations in Motion
 Code sapmle of cool animations in React-Native you can use in your app
 
@@ -30,5 +31,3 @@ Code sapmle of cool animations in React-Native you can use in your app
 ### Shared Element
 How to implement 
 ![Shared element](demo/shared_element.gif)
-
-## See it in action > [Open `snack`](https://snack.expo.io/@innovaterz/motion)
