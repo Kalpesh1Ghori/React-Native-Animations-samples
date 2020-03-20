@@ -1,6 +1,10 @@
 # Mobile app use [React-Native](https://facebook.github.io/react-native/)
 
 ## Layout Animnations
-<img href="https://drive.google.com/file/d/1kEuXdgCG5SHdy-xVLY4oBG8bnEVYrFJ0/view?usp=sharing" width="300" height="500">
+<img href="https://drive.google.com/uc?export=view&id=1kEuXdgCG5SHdy-xVLY4oBG8bnEVYrFJ0/view" width="300" height="500">
+
+
+![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+
 
 ## See it in action > [Open `snack`](https://snack.expo.io/@innovaterz/motion)
