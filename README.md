@@ -62,6 +62,11 @@ guides users to focus on what you want
 
 
 ### Shared Element
-How to implement 
+* An element being shared and moved from one screen to another during transition
+* Continuity between transitions
+* Screen not breaks on navigation
+* Focus on the content and its representation
+> Actually React-Native does not support shared-element out of the box
+
 
 ![Shared element](demo/shared_element.gif)
