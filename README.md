@@ -1,6 +1,9 @@
- Mobile app animations written in **React-Native** live demo in action > [Open `snack`](https://snack.expo.io/@innovaterz/motion)
+ Mobile app animations written in **React-Native** 
  
-[Meetup Slides explenation](https://docs.google.com/presentation/d/1Ne6xmzMd-qZ0JRObe5skSg9XQcF9wa-Fa03OZJTMDEI/present?usp=sharing)
+ * Live demo [snack](https://snack.expo.io/@innovaterz/motion)
+ 
+* [Slides share](https://docs.google.com/presentation/d/1Ne6xmzMd-qZ0JRObe5skSg9XQcF9wa-Fa03OZJTMDEI/present?usp=sharing)
+
  
 # React-Native Animations in Motion
 ## What is Motion?
