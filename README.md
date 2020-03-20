@@ -1,6 +1,3 @@
-
-
- 
 # React-Native Animations in Motion
 
 Mobile app animations both platform compatible **iOS** & **Android**
