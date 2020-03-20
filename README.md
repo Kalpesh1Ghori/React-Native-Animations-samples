@@ -61,7 +61,7 @@ guides users to focus on what you want
 
 
 
-### Shared Element
+# Shared Element
 * An element being shared and moved from one screen to another during transition
 * Continuity between transitions
 * Screen not breaks on navigation
