@@ -12,10 +12,7 @@
 * Configurable transforms between elements
 * Simple start/stop methods to control time-based animation execution
 
-![Animated API 1](demo/animated_api_1.gif)
-![Animated API 2](demo/animated_api_2.gif)
-
-## Samples:
+### Samples:
 
 - Fade in
 - Fade out
@@ -25,28 +22,38 @@
 - Maximize
 - Movement
 
+![Animated API 1](demo/animated_api_1.gif)
+![Animated API 2](demo/animated_api_2.gif)
 
 
 # Layout Animnations
 * Automatically animates views when the next layout happens
 * A common way to use it: call it before  setState
 
-![Layout Animations](demo/layout_animation.gif)
 
-## Samples:
+### Samples:
 
 - Remove item from a list
 - Add item to a list
 - Add item to a list at position [i]
 
+![Layout Animations](demo/layout_animation.gif)
 
 
-### Transitions
+# Transitions
+Transition is an animation which 
+guides users to focus on what you want
+
+### Samples:
+
 - Bottom transition
 - Side transition
 - Fade transition
 
+
 ![Transitions](demo/transitions.gif)
+
+
 
 ### Shared Element
 How to implement 
