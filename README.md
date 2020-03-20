@@ -15,6 +15,7 @@ Code sapmle of cool animations in React-Native you can use in your app
 - Maximize
 - Movement
 - Mixes & more ...
+
 ![Animated API 1](demo/animated_api_1.gif)
 ![Animated API 2](demo/animated_api_2.gif)
 
@@ -22,14 +23,17 @@ Code sapmle of cool animations in React-Native you can use in your app
 - Remove item from a list
 - Add item to a list
 - Add item to a list at position [i]
+
 ![Layout Animations](demo/layout_animation.gif)
 
 ### Transitions
 - Bottom transition
 - Side transition
 - Fade transition
+
 ![Transitions](demo/transitions.gif)
 
 ### Shared Element
 How to implement 
+
 ![Shared element](demo/shared_element.gif)
